@@ -32,7 +32,7 @@ To run this project, you will need to add the following environment variables to
 
 ## Screenshots
 <div align="center">
-<img src="https://user-images.githubusercontent.com/102362172/215460958-1e1d6e81-c6b0-4b1d-a784-a9f7f2f7e849.png" width="400" height="200">
+<img src="https://user-images.githubusercontent.com/102362172/215460958-1e1d6e81-c6b0-4b1d-a784-a9f7f2f7e849.png" width="300" height="200">
 </div>
 
 ## 🔗 Links
