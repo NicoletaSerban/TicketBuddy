@@ -1,0 +1,95 @@
+#hero {
+  width: 100%;
+  height: 60vh;
+  background: url("../img/hero-bg.jpg") center;
+  background-size: cover;
+  position: relative;
+}
+
+/* tickets assigne */
+.ticket .box {
+  padding: 20px;
+  background: #f9f9f9;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #f9f9f9;
+}
+
+.ticket .box h3 {
+  font-weight: 400;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #493c3e;
+}
+
+.ticket .box h4 {
+  font-size: 42px;
+  color: #e43c5c;
+  font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 20px;
+}
+
+.ticket .box h4 sup {
+  font-size: 20px;
+  top: -15px;
+  left: -3px;
+}
+
+.ticket .box h4 span {
+  color: #bababa;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.ticket .box ul {
+  padding: 0;
+  list-style: none;
+  color: #493c3e;
+  text-align: center;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.ticket .box ul li {
+  padding-bottom: 16px;
+}
+
+.ticket .box ul i {
+  color: #e43c5c;
+  font-size: 18px;
+  padding-right: 4px;
+}
+
+.ticket .box ul .na {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.ticket .box .btn-wrap {
+  padding: 15px;
+  text-align: center;
+}
+
+.ticket .box .btn-buy {
+  display: inline-block;
+  padding: 8px 40px 10px 40px;
+  border-radius: 50px;
+  border: 2px solid #05853f;
+  color: #1bc969;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.ticket .box .btn-buy:hover {
+  background: #1bc969;
+  color: #fff;
+}
+

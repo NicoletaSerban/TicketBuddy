@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <!-- bootstrap icos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/main.min.css" />
+  <title>Ticket Budy</title>
+</head>
+
+<body>
+  <section class="container">
+    <h1 class="text-center p-3 text-success fw-bold">Ticket Buddy</h1>
+    <section class="p-4 bg" id="hero">
+      <div class="hero-container">
+        <h3 class="d-flex justify-content-center fw-bold text-black">Add New Issue:</h3>
+
+        <!-- start of form -->
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-lg-6 mx-auto text-center">
+              <form id="issueInputForm" method="POST" action="/new">
+                <div class="form-group">
+                  <label for="subject" class="form-label pt-2 fw-bold text-success fs-5">Subject</label>
+                  <input type="text" class="form-control" id="subject" name="subject" placeholder="Issue Subject..." />
+                </div>
+                <div class="form-group">
+                  <label for="description" class="form-label pt-2 fw-bold text-success fs-5">Description</label>
+                  <input type="text" class="form-control" id="description" name="description"
+                    placeholder="Issue Description..." />
+                </div>
+                <div class="form-group">
+                  <label for="severity" class="form-label pt-2 fw-bold text-success fs-5">Severity</label>
+                  <select class="form-control" id="severity" name="severity">
+                    <option value="" selected>Choose an option</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="assignedTo" class="form-label pt-2 fw-bold text-success fs-5">Assigned To</label>
+                  <input type="text" class="form-control   p-2 mb-2" id="assignedTo" name="assignedTo"
+                    placeholder="Enter Person Responsible..." />
+                </div>
+                <div class="pt-3 pb-3 d-flex">
+                  <button type="submit" class="btn btn-lg btn-success">Add</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- end of form -->
+    </section>
+
+    <section id="ticket" class="ticket">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 class="text-center pt-4 fw-bold">Tickets</h2>
+          <p class="text-center fs-5 text-muted">Assigne tickes for all the members</p>
+        </div>
+
+        <!-- start of tickets card -->
+        <div class="row">
+          <% ticketTask.forEach(tickets=> { %>
+            <div class="col-lg-4 col-md-6">
+              <div id="issuesList">
+
+                <div class="box">
+                  <h3>Issue Id:<span></span>
+                    <%=tickets._id%>
+                  </h3>
+                  <ul>
+                    <p>
+                      <span
+                        class="label py-2 px-4 rounded-4 fw-bold <%=tickets.status === 'Closed' ? 'bg-success' : 'bg-info'%>">
+                        <%=tickets.status%>
+                      </span>
+                    </p>
+                  </ul>
+                  <h3> Subject:
+                    <%=tickets.subject%>
+                  </h3>
+                  <p class="fw-bold"> Description:
+                    <span>
+                      <%=tickets.description%>
+                    </span </p>
+                  <p class="fw-bold"> Assigned to:
+                    <span class="bi bi-person-check"></span>
+                    <%=tickets.assignedTo%>
+                  </p>
+                  <p class="fw-bold <% if(tickets.severity === 'High'){ %> text-danger
+                    <% } else if(tickets.severity === 'Medium') { %>  text-success
+                      <% } else if(tickets.severity === 'Low'){ %> text-info
+                        <% } %> ">
+                    <span>Importance: </span> <span class="bi bi-clock-history"></span>
+                    <%=tickets.severity%>
+                  </p>
+                  <div class="btn-wrap">
+                    <a href="/edit/<%=tickets._id %>" class="btn-buy">Close the ticket</a>
+                    <a href="/edit/remove/<%=tickets._id %>" class="btn-buy">Delete</a>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <% }) %>
+              <!-- end of tickets card -->
+
+        </div>
+    </section><!-- End tickets Section -->
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+</body>
